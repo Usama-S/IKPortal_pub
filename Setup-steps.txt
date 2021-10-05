@@ -1,0 +1,25 @@
+1. Download project from {{link}} as .zip and extract it to your desired location.
+
+2. Create a new database (name = "IKPortal") with the location of "[path-of-folder-where-you-extracted-project-files]/Database".
+
+3. Open the "IKPortal-Qry.sql" file from the [your-project-folder]/Database folder and run it in Sql Server Management Studio.
+
+4. Copy the View query commented in the end of the query file.
+
+5. Refresh the database and Create a new View.
+
+6. Paste the query in the query section of new View and press "Ctrl + r".
+
+7. Save this view as "QryEmployeeDetails".
+
+8. Go to the Project folder inside your project folder and open web.config.
+
+9. Find the connection string and replace {{server-name}}, {{id}} and {{password}} with your database server-name, database user id, and database password respectively.
+
+10. Press "Window + r" and type "inetmgr" and press enter. (IIS server should be installed)
+
+11. On the top-left corner, under the connections section, expand your server name, right click on "Sites" and click "Add Website..."
+
+12. In the next screen, enter your site name as IKPortal, choose the physical path to "[your-project-folder]/Database", change port to 8090 and the click "OK".
+
+13. Go to browser and type "localhost:8090"...

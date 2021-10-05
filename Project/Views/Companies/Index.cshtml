@@ -1,0 +1,57 @@
+﻿@model IEnumerable<IKPortal.TblCompany>
+
+@{
+    ViewBag.Title = "Companies";
+}
+
+<h2>Companies</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-sm" id="datatable2">
+    <thead class="bg-dark text-white no-bold">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationLinks)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Date)*@
+                    @Html.FormatValue("dd-MMM-yyyy", ((DateTime)item.Date).ToString("dd-MMM-yyyy"))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationLinks)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CompanyCode }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CompanyCode }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CompanyCode })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

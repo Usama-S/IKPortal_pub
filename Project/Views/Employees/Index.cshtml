@@ -1,0 +1,111 @@
+﻿@model IEnumerable<IKPortal.TblEmployee>
+
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h2>Employees</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-sm" id="datatable1">
+    <thead class="bg-dark text-white no-bold">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PTCL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anydesk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationLinks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblCompany.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblDesignation.Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblProgram.Program)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Date)*@
+                    @Html.FormatValue("dd-MMM-yyyy", ((DateTime)item.Date).ToString("dd-MMM-yyyy"))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PTCL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Anydesk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationLinks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TblCompany.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TblDesignation.Designation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TblProgram.Program)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeCode }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EmployeeCode }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeCode })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+
+    string username = ViewBag.username != null ? ViewBag.username : "";
+    string password = ViewBag.password != null ? ViewBag.password : "";
+
+    string rememberMeChecked = "";
+
+    if (!username.Equals("") && !password.Equals(""))
+    {
+        rememberMeChecked = "Checked";
+    }
+
+
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/App_Files/CustomCss.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome/css/all.css" rel="stylesheet" />
+    <title>Login - IKPortal</title>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="color: black; filter: invert(1)"><b><span style="color: #3e74b1">IK</span>Portal</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <div class="container body-content" style="padding-top: 30px;">
+
+        @if (ViewBag.loginError != null)
+        {
+            <div id="loginError" class="fadeout-alert alert alert-danger alert-hover col-4 mx-auto text-center" role="alert">
+                <b>* Invalid Credentials!</b>
+            </div>
+        }
+
+        <h2 class="col-sm-10 col-md-4 mx-auto mb-2">Login</h2>
+
+        <form action="/Accounts/Login" method="post" class="col-sm-10 col-md-4 mx-auto mt-3 mb-5">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" name="username" required value="@username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" required value="@password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+                <!-- show password checkbox -->
+                <div class="form-check">
+                    <input type="checkbox" onclick="showPassword()" class="form-check-input" id="showPass">
+                    <label class="form-check-label" for="showPass">Show Password</label>
+                </div>
+            </div>
+            <div class="form-check mt-1">
+                <input type="checkbox" @rememberMeChecked name="rememberMe" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+            </div>
+            <div class="form-group row">
+                <button type="submit" class="mx-auto btn btn-primary col-3 mt-3">Login</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="container">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - IKPortal</p>
+        </footer>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="~/Content/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jquery -->
+    <script src="~/Content/js/jquery-3.6.0.min.js"></script>
+
+    <script src="~/App_Files/CustomJs.js"></script>
+
+    <!-- fontawesome -->
+    <script src="~/Content/fontawesome/js/all.js"></script>
+</body>
+</html>
+
+<script>
+
+    function showPassword() {
+        var x = document.getElementById("exampleInputPassword1");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+</script>
+

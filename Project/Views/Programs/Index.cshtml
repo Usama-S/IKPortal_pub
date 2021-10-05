@@ -1,0 +1,37 @@
+﻿@model IEnumerable<IKPortal.TblProgram>
+
+@{
+    ViewBag.Title = "Programs";
+}
+
+<h2>Programs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-sm" id="datatable2">
+    <thead class="bg-dark text-white no-bold">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Program)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProgramCode }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProgramCode }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProgramCode })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

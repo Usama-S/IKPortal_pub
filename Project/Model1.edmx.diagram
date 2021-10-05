@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c6690a768ffa441587a180a66e43dad8" Name="Diagram1">
+        <EntityTypeShape EntityType="IKPortalModel.TblCompany" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKPortalModel.TblDesignation" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKPortalModel.TblEmployee" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKPortalModel.TblProgram" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKPortalModel.TblUser" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IKPortalModel.QryEmployeeDetail" Width="1.5" PointX="5.75" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="IKPortalModel.FK__TblEmploy__Compa__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="IKPortalModel.FK__TblEmploy__Desig__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="IKPortalModel.FK__TblEmploy__Progr__2F10007B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

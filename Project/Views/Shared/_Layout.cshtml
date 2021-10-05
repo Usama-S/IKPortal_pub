@@ -1,0 +1,121 @@
+﻿@{
+    // check controller name to set active class in navbar
+    string homeClass = "";
+    string companiesClass = "";
+    string employeesClass = "";
+    string designationsClass = "";
+    string programsClass = "";
+
+    var controllerName = string.Empty;
+    Object controllerObj = "";
+
+    if (ViewContext.RouteData.Values.TryGetValue("controller", out controllerObj))
+    {
+        controllerName = controllerObj.ToString();
+
+        switch (controllerName)
+        {
+            case "Home":
+                homeClass = "active";
+                break;
+            case "Companies":
+                companiesClass = "active";
+                break;
+            case "Employees":
+                employeesClass = "active";
+                break;
+            case "Designations":
+                designationsClass = "active";
+                break;
+            case "Programs":
+                programsClass = "active";
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- bootstrap -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- datatable css -->
+    <link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <link href="~/Content/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="~/App_Files/CustomCss.css" rel="stylesheet" />
+
+    <title>@ViewBag.Title - IKPortal</title>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="color: black; filter: invert(1)"><b><span style="color: #3e74b1">IK</span>Portal</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link @homeClass" href="/"><i class="fas fa-home"></i> Home</a>
+                    <a class="nav-link @companiesClass" href="/Companies"><i class="fas fa-building"></i> Companies</a>
+                    <a class="nav-link @employeesClass" href="/Employees"><i class="fas fa-user-tie"></i> Employees</a>
+                    <a class="nav-link @designationsClass" href="/Designations"><i class="fas fa-id-card"></i> Designations</a>
+                    <a class="nav-link @programsClass" href="/Programs"><i class="fas fa-laptop-code"></i> Programs</a>
+                </div>
+                <div class="navbar-nav" style="margin-left: auto; margin-right: 0px;">
+                    <a class="nav-link" href="/Accounts/Logout"><i class="fas fa-power-off"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content" style="padding-top: 30px;">
+        @RenderBody()
+    </div>
+
+    <div class="container">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - IKPortal</p>
+        </footer>
+    </div>
+
+    <!-- jquery link -->
+    <script src="~/Content/js/jquery-3.6.0.min.js"></script>
+
+    <!-- datatable library -->
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+
+    <!-- bootstrap js bundle -->
+    <script src="~/Content/js/bootstrap.bundle.min.js"></script>
+
+    <!-- fontawesome icons js -->
+    <script src="~/Content/fontawesome/js/all.js"></script>
+
+    <!-- custom js -->
+    <script src="~/App_Files/CustomJs.js"></script>
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('#datatable1').DataTable({
+            scrollX: 100
+        });
+
+        $('#datatable2').DataTable({
+            scrollX
+        });
+    });
+</script>
